@@ -37,9 +37,8 @@ body {
   line-height: 1.5;
 }
 
-/* ── LAYOUT WRAPPER ── */
 .page {
-  max-width: 860px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 28px 20px 40px;
 }
@@ -81,14 +80,6 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* ── TWO-COLUMN GRID (laptop) ── */
-.two-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
 /* ── CARD ── */
 .card {
   background: var(--surface);
@@ -96,6 +87,7 @@ body {
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
+  margin-bottom: 16px;
 }
 .card.highlight {
   border-color: var(--accent-dim);
@@ -114,11 +106,7 @@ body {
   color: var(--text-dim);
   margin-bottom: 16px;
 }
-.dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .dot-blue  { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
 .dot-green { background: var(--green);  box-shadow: 0 0 6px var(--green); }
 
@@ -160,17 +148,7 @@ body {
   border-color: var(--border);
 }
 .fl textarea { resize: none; height: 58px; }
-.fl select {
-  appearance: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a90a2' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
-}
-.fl select option { background: #1c1f2a; }
 
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
 
 /* ── PIN ── */
@@ -240,43 +218,9 @@ body {
 }
 .btn-clr:hover { border-color: var(--text-dim); color: var(--text); }
 
-/* ── COURIER SELECT CARD ── */
-.courier-row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-  margin-bottom: 16px;
-}
-.courier-row .fl { flex: 1; margin-bottom: 0; }
-
-/* ── COURIER CHIPS (suggestions) ── */
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 6px;
-}
-.chip {
-  padding: 4px 11px;
-  background: var(--surface2);
-  border: 1px solid var(--border2);
-  border-radius: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text-dim);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.chip:hover, .chip.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(61,127,255,0.1);
-}
-
 /* ─────────────── SLIP ─────────────── */
 #slip-section { display: none; }
 
-/* Dark wrapper card (screen only) */
 .slip-wrap {
   background: var(--surface);
   border: 1px solid var(--border2);
@@ -286,7 +230,6 @@ body {
   margin-bottom: 14px;
 }
 
-/* The actual printable label — white paper feel */
 .slip-label {
   background: #ffffff;
   color: #111;
@@ -296,10 +239,8 @@ body {
   overflow: hidden;
 }
 
-/* Main label body */
 .slip-lbody { padding: 28px 32px 24px; }
 
-/* TO section — CENTERED */
 .to-kw {
   font-size: 10px;
   font-weight: 700;
@@ -321,11 +262,7 @@ body {
   text-transform: uppercase;
 }
 
-/* Address block — centered */
-.addr-block {
-  text-align: center;
-  margin-bottom: 4px;
-}
+.addr-block { text-align: center; margin-bottom: 4px; }
 .addr-line {
   font-size: 14px;
   font-weight: 500;
@@ -335,12 +272,7 @@ body {
   display: block;
   padding: 0;
 }
-.addr-line .lbl { display: none; }
-.addr-line .val {
-  color: #222;
-  font-weight: 500;
-  font-size: 14px;
-}
+.addr-line .val { color: #222; font-weight: 500; font-size: 14px; }
 
 .pin-line {
   font-size: 20px;
@@ -362,22 +294,13 @@ body {
   text-align: center;
   letter-spacing: 0.03em;
 }
-.person-line {
-  font-size: 13px;
-  font-weight: 600;
-  color: #777;
-  text-align: center;
-  margin-bottom: 2px;
-}
 
-/* Dashed divider */
 .slip-dash {
   border: none;
   border-top: 1.5px dashed #ccc;
   margin: 20px 0 16px;
 }
 
-/* FROM section — centered, smaller */
 .from-kw {
   font-size: 9px;
   font-weight: 700;
@@ -400,14 +323,19 @@ body {
   line-height: 1.7;
   text-align: center;
 }
-
-.barcode { display: flex; gap: 2px; height: 36px; align-items: flex-end; }
-.barcode span { display: inline-block; background: #111; }
+/* Sender mobile on slip */
+.from-mob {
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-top: 4px;
+  text-align: center;
+}
 
 /* ── SLIP ACTIONS ── */
 .slip-actions { display: flex; gap: 10px; margin-bottom: 8px; }
 .btn-print {
-  flex: 2;
+  flex: 1;
   padding: 13px;
   background: var(--green);
   color: #fff;
@@ -421,20 +349,6 @@ body {
   transition: opacity 0.2s;
 }
 .btn-print:hover { opacity: 0.88; }
-.btn-copy {
-  flex: 1;
-  padding: 13px;
-  background: var(--surface2);
-  color: var(--text);
-  border: 1.5px solid var(--border2);
-  border-radius: var(--radius);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.btn-copy:hover { border-color: var(--accent); color: var(--accent); }
 .btn-new {
   width: 100%;
   padding: 12px;
@@ -450,56 +364,23 @@ body {
 }
 .btn-new:hover { color: var(--text); border-color: var(--text-dim); }
 
-/* ── SEPARATOR ── */
-.panel-sep {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  font-size: 11px;
-  color: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-.panel-sep::before, .panel-sep::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-
-/* ── PREFILLED TAG ── */
-.prefilled-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 9px;
-  background: rgba(34,201,122,0.12);
-  border: 1px solid rgba(34,201,122,0.3);
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--green);
-  margin-left: auto;
-}
+/* Hidden sender card — holds data, invisible in UI */
+#sender-card { display: none; }
 
 @media (max-width: 700px) {
-  .two-panel { grid-template-columns: 1fr; }
-  .row2, .row3 { grid-template-columns: 1fr; }
-  .info-grid  { grid-template-columns: 1fr; }
-  .to-name    { font-size: 18px; }
-  .hdr-badge  { display: none; }
+  .row3 { grid-template-columns: 1fr; }
+  .hdr-badge { display: none; }
   .slip-actions { flex-direction: column; }
 }
 
 @media print {
   body { background: #fff; padding: 0; }
-  #form-area, #form-actions, .btn-print, .btn-copy, .btn-new, .hdr, .panel-sep { display: none !important; }
+  #form-area, #form-actions, .btn-print, .btn-new, .hdr { display: none !important; }
   .page { max-width: 100%; padding: 8px; }
   #slip-section { display: block !important; }
   .slip-wrap { background: #fff; box-shadow: none; padding: 0; border: none; border-radius: 0; }
   .slip-label { border: 2px solid #111; }
-  .slip-actions, .btn-new { display: none !important; }
+  .slip-actions { display: none !important; }
 }
 </style>
 </head>
@@ -519,81 +400,49 @@ body {
   <!-- FORM -->
   <div id="form-area">
 
-    <!-- TO + FROM SIDE BY SIDE -->
-    <div class="two-panel">
-
-      <!-- RECEIVER (TO) — shown first -->
-      <div class="card highlight">
-        <div class="sec-label">
-          <span class="dot dot-green"></span>Receiver (To)
-        </div>
-
-        <div class="fl">
-          <label>Company / Receiver Name</label>
-          <input type="text" id="r-name" placeholder="e.g. SP Singh" autofocus>
-        </div>
-        <div class="fl">
-          <label>Mobile</label>
-          <input type="text" id="r-mobile" maxlength="10" placeholder="10-digit">
-        </div>
-        <div class="fl">
-          <label>Street / Building Address</label>
-          <textarea id="r-addr" placeholder="Shop No., Street, Area..."></textarea>
-        </div>
-        <div class="fl">
-          <label>PIN Code</label>
-          <div class="pin-wrap">
-            <input type="text" id="r-pin" maxlength="6" placeholder="6-digit PIN"
-              oninput="this.value=this.value.replace(/\D/g,'');if(this.value.length===6)lookupPin('r')">
-            <button class="pin-btn" id="r-btn" onclick="lookupPin('r')">Search</button>
-          </div>
-          <div class="pin-msg" id="r-msg"></div>
-        </div>
-        <div class="row3">
-          <div class="fl"><label>City / PO</label><input type="text" id="r-city" readonly placeholder="Auto-filled"></div>
-          <div class="fl"><label>District</label><input type="text" id="r-dist" readonly placeholder="Auto-filled"></div>
-          <div class="fl"><label>State</label><input type="text" id="r-state" readonly placeholder="Auto-filled"></div>
-        </div>
+    <!-- RECEIVER (TO) — full width -->
+    <div class="card highlight">
+      <div class="sec-label">
+        <span class="dot dot-green"></span>Receiver (To)
       </div>
-
-      <!-- SENDER (FROM) — pre-filled -->
-      <div class="card">
-        <div class="sec-label">
-          <span class="dot dot-blue"></span>Sender (From)
-          <span class="prefilled-tag">✓ Pre-filled</span>
+      <div class="fl">
+        <label>Company / Receiver Name</label>
+        <input type="text" id="r-name" placeholder="e.g. SP Singh" autofocus>
+      </div>
+      <div class="fl">
+        <label>Mobile</label>
+        <input type="text" id="r-mobile" maxlength="10" placeholder="10-digit">
+      </div>
+      <div class="fl">
+        <label>Street / Building Address</label>
+        <textarea id="r-addr" placeholder="Shop No., Street, Area..."></textarea>
+      </div>
+      <div class="fl">
+        <label>PIN Code</label>
+        <div class="pin-wrap">
+          <input type="text" id="r-pin" maxlength="6" placeholder="6-digit PIN"
+            oninput="this.value=this.value.replace(/\D/g,'');if(this.value.length===6)lookupPin('r')">
+          <button class="pin-btn" id="r-btn" onclick="lookupPin('r')">Search</button>
         </div>
-
-        <div class="fl">
-          <label>Company Name</label>
-          <input type="text" id="s-name" value="Zenix Surgicals">
-        </div>
-        <div class="fl">
-          <label>Mobile</label>
-          <input type="text" id="s-mobile" maxlength="10" placeholder="10-digit"value="+91 7800076405">
-        </div>
-        <div class="fl">
-          <label>Street / Building Address</label>
-          <textarea id="s-addr" placeholder="Shop No., Street, Area..."></textarea>
-        </div>
-        <div class="fl">
-          <label>PIN Code</label>
-          <div class="pin-wrap">
-            <input type="text" id="s-pin" maxlength="6" value="226023" placeholder="6-digit PIN"
-              oninput="this.value=this.value.replace(/\D/g,'');if(this.value.length===6)lookupPin('s')">
-            <button class="pin-btn" id="s-btn" onclick="lookupPin('s')">Search</button>
-          </div>
-          <div class="pin-msg" id="s-msg"></div>
-        </div>
-        <div class="row3">
-          <div class="fl"><label>City / PO</label><input type="text" id="s-city" readonly placeholder="Auto-filled"></div>
-          <div class="fl"><label>District</label><input type="text" id="s-dist" readonly placeholder="Auto-filled"></div>
-          <div class="fl"><label>State</label><input type="text" id="s-state" readonly placeholder="Auto-filled"></div>
-        </div>
+        <div class="pin-msg" id="r-msg"></div>
+      </div>
+      <div class="row3">
+        <div class="fl"><label>City / PO</label><input type="text" id="r-city" readonly placeholder="Auto-filled"></div>
+        <div class="fl"><label>District</label><input type="text" id="r-dist" readonly placeholder="Auto-filled"></div>
+        <div class="fl"><label>State</label><input type="text" id="r-state" readonly placeholder="Auto-filled"></div>
       </div>
     </div>
 
-    <!-- hidden courier value for slip generation -->
-    <select id="sh-courier" style="display:none"><option selected>—</option></select>
+    <!-- SENDER — hidden in UI, all values hardcoded via JS -->
+    <div id="sender-card">
+      <input type="text" id="s-name">
+      <input type="text" id="s-mobile">
+      <textarea id="s-addr"></textarea>
+      <input type="text" id="s-pin">
+      <input type="text" id="s-city">
+      <input type="text" id="s-dist">
+      <input type="text" id="s-state">
+    </div>
 
   </div><!-- /form-area -->
 
@@ -608,46 +457,36 @@ body {
     <div class="slip-wrap">
       <div class="slip-label">
 
-        <!-- hidden elements -->
-        <span id="sl-co" style="display:none"></span>
-        <span id="sl-meta" style="display:none"></span>
-
-        <!-- Main label body -->
         <div class="slip-lbody">
 
-          <!-- ── TO ── -->
+          <!-- TO -->
           <div class="to-kw">— To —</div>
           <div class="to-company" id="sl-dest"></div>
 
           <div class="addr-block">
-            <span class="addr-line"><span class="lbl"></span><span class="val" id="sl-r-street"></span></span>
-            <span class="addr-line" id="sl-r-area-row"><span class="lbl"></span><span class="val" id="sl-r-area"></span></span>
-            <span class="addr-line"><span class="lbl"></span><span class="val" id="sl-r-city-st"></span></span>
+            <span class="addr-line"><span class="val" id="sl-r-street"></span></span>
+            <span class="addr-line"><span class="val" id="sl-r-area"></span></span>
+            <span class="addr-line"><span class="val" id="sl-r-city-st"></span></span>
           </div>
 
           <div class="pin-line" id="sl-r-pin"></div>
-
           <div class="mob-line" id="sl-r-mob"></div>
 
           <hr class="slip-dash">
 
-          <!-- ── FROM ── -->
+          <!-- FROM -->
           <div class="from-kw">From</div>
           <div class="from-name" id="sl-s-name"></div>
           <div class="from-addr" id="sl-s-addr"></div>
-        </div>
+          <div class="from-mob"  id="sl-s-mob"></div>
 
-        <!-- hidden footer elements for JS -->
-        <span id="sl-svc" style="display:none"></span>
-        <span id="sl-id"  style="display:none"></span>
-        <div id="sl-barcode" style="display:none"></div>
+        </div>
 
       </div><!-- /slip-label -->
     </div><!-- /slip-wrap -->
 
     <div class="slip-actions">
       <button class="btn-print" onclick="window.print()">🖨 Print / Save PDF</button>
-      <button class="btn-copy"  id="copy-btn" onclick="copySlipId()">📋 Copy Slip ID</button>
     </div>
     <button class="btn-new" onclick="clearAll()">← Create New Slip</button>
   </div>
@@ -663,14 +502,12 @@ async function lookupPin(side) {
   const btn   = document.getElementById(side + '-btn');
 
   if (!/^\d{6}$/.test(pin)) {
-    msg.className = 'pin-msg err';
-    msg.textContent = 'Enter a valid 6-digit PIN code.';
+    if (msg) { msg.className = 'pin-msg err'; msg.textContent = 'Enter a valid 6-digit PIN code.'; }
     return;
   }
-  msg.className = 'pin-msg loading';
-  msg.textContent = '⟳ Searching…';
-  btn.disabled = true;
-  ['city','dist','state'].forEach(f => document.getElementById(side+'-'+f).value = '');
+  if (msg) { msg.className = 'pin-msg loading'; msg.textContent = '⟳ Searching…'; }
+  if (btn) btn.disabled = true;
+  ['city','dist','state'].forEach(f => { const el = document.getElementById(side+'-'+f); if(el) el.value = ''; });
 
   try {
     const ctrl = new AbortController();
@@ -684,52 +521,47 @@ async function lookupPin(side) {
       document.getElementById(side+'-city').value  = po.Name     || '';
       document.getElementById(side+'-dist').value  = po.District || '';
       document.getElementById(side+'-state').value = po.State    || '';
-      msg.className = 'pin-msg ok';
-      const ct = data[0].PostOffice.length;
-      msg.textContent = '✓ ' + po.Name + ', ' + po.District + ', ' + po.State +
-        (ct > 1 ? ' (' + ct + ' post offices)' : '');
+      if (msg) {
+        msg.className = 'pin-msg ok';
+        const ct = data[0].PostOffice.length;
+        msg.textContent = '✓ ' + po.Name + ', ' + po.District + ', ' + po.State +
+          (ct > 1 ? ' (' + ct + ' post offices)' : '');
+      }
     } else { manualEntry(side, msg); }
   } catch { manualEntry(side, msg); }
-  btn.disabled = false;
+  if (btn) btn.disabled = false;
 }
 
 function manualEntry(side, msg) {
   ['city','dist','state'].forEach(f => {
     const el = document.getElementById(side+'-'+f);
-    el.removeAttribute('readonly');
-    el.style.background    = 'rgba(240,165,0,0.06)';
-    el.style.borderColor   = 'var(--amber)';
-    el.placeholder = 'Enter manually';
+    if (el) {
+      el.removeAttribute('readonly');
+      el.style.background  = 'rgba(240,165,0,0.06)';
+      el.style.borderColor = 'var(--amber)';
+      el.placeholder = 'Enter manually';
+    }
   });
-  msg.className = 'pin-msg err';
-  msg.textContent = '⚠ Auto-fetch failed. Enter City, District & State manually.';
+  if (msg) { msg.className = 'pin-msg err'; msg.textContent = '⚠ Auto-fetch failed.'; }
 }
 
 function g(id) { return (document.getElementById(id)?.value || '').trim(); }
 
 /* ── Generate ── */
 function generateSlip() {
-  const sName = g('s-name'), sMob = g('s-mobile');
-  const sAddr = g('s-addr'), sPin = g('s-pin'), sCity = g('s-city'), sDist = g('s-dist'), sSt = g('s-state');
-  const rName = g('r-name'), rMob = g('r-mobile');
-  const rAddr = g('r-addr'), rPin = g('r-pin'), rCity = g('r-city'), rDist = g('r-dist'), rSt = g('r-state');
+  const sName  = g('s-name'), sMob = g('s-mobile');
+  const sAddr  = g('s-addr'), sPin = g('s-pin');
+  const sCity  = g('s-city'), sDist = g('s-dist'), sSt = g('s-state');
+  const rName  = g('r-name'), rMob = g('r-mobile');
+  const rAddr  = g('r-addr'), rPin = g('r-pin');
+  const rCity  = g('r-city'), rDist = g('r-dist'), rSt = g('r-state');
 
   if (!rName) { alert('Please enter Receiver Name.'); document.getElementById('r-name').focus(); return; }
   if (!rPin)  { alert('Please enter Receiver PIN Code.'); document.getElementById('r-pin').focus(); return; }
-  if (!sName) { alert('Please enter Sender Company Name.'); document.getElementById('s-name').focus(); return; }
-  if (!sPin)  { alert('Please enter Sender PIN Code.'); document.getElementById('s-pin').focus(); return; }
+  if (!sName) { alert('Sender name is missing.'); return; }
+  if (!sPin)  { alert('Sender PIN is missing.'); return; }
 
-  const now     = new Date();
-  const dateStr = now.toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  const slipId  = 'MS-' + now.getFullYear().toString().slice(-2) +
-    String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') +
-    '-' + Math.floor(1000 + Math.random() * 9000);
-
-  // ── Top strip ──
-  document.getElementById('sl-co').textContent  = sName.toUpperCase();
-  document.getElementById('sl-meta').innerHTML  = 'Slip No: ' + slipId + '<br>Date: ' + dateStr;
-
-  // ── TO section ──
+  // TO section
   document.getElementById('sl-dest').textContent      = rName.toUpperCase();
   document.getElementById('sl-r-street').textContent  = rAddr || '';
   document.getElementById('sl-r-area').textContent    = [rDist, rSt].filter(Boolean).join(', ');
@@ -737,27 +569,11 @@ function generateSlip() {
   document.getElementById('sl-r-pin').textContent     = 'PIN: ' + rPin;
   document.getElementById('sl-r-mob').textContent     = rMob ? 'Mob: +91 ' + rMob : '';
 
-  // ── FROM section ──
+  // FROM section — name, address, and mobile
   document.getElementById('sl-s-name').textContent = sName;
   document.getElementById('sl-s-addr').textContent = [sAddr, sCity, sDist, sSt, 'PIN: ' + sPin]
     .filter(Boolean).join(', ');
-
-  // ── Footer ──
-  document.getElementById('sl-svc').textContent = 'MEDCREW SURGICALS';
-  document.getElementById('sl-id').textContent  = 'Slip ID: ' + slipId;
-
-  // store for copy
-  document.getElementById('copy-btn').dataset.slipId = slipId;
-
-  // barcode
-  const bc = document.getElementById('sl-barcode');
-  bc.innerHTML = '';
-  [18,28,22,32,16,28,20,32,24,18,30,22,28,16,26,32,20,24,18,28].forEach((h,i) => {
-    const s = document.createElement('span');
-    s.style.height = h + 'px';
-    s.style.width  = (i % 3 === 0 ? '3' : '2') + 'px';
-    bc.appendChild(s);
-  });
+  document.getElementById('sl-s-mob').textContent  = sMob ? 'Mob: ' + sMob : '';
 
   document.getElementById('form-area').style.display    = 'none';
   document.getElementById('form-actions').style.display = 'none';
@@ -765,39 +581,20 @@ function generateSlip() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ── Copy Slip ID ── */
-function copySlipId() {
-  const id  = document.getElementById('copy-btn').dataset.slipId || '';
-  const btn = document.getElementById('copy-btn');
-  if (!id) return;
-  navigator.clipboard.writeText(id).then(() => {
-    btn.textContent = '✓ Copied!';
-    setTimeout(() => btn.textContent = '📋 Copy Slip ID', 2000);
-  }).catch(() => {
-    btn.textContent = 'Manual copy';
-    prompt('Copy this Slip ID:', id);
-    setTimeout(() => btn.textContent = '📋 Copy Slip ID', 2000);
-  });
-}
-
 /* ── Clear ── */
 function clearAll() {
-  ['s-mobile','s-addr',
-   'r-name','r-mobile','r-addr','r-pin'].forEach(id => {
+  ['r-name','r-mobile','r-addr','r-pin'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  // reset sender PIN to default
   document.getElementById('s-pin').value = '226023';
 
   ['s','r'].forEach(side => {
     ['city','dist','state'].forEach(f => {
       const el = document.getElementById(side+'-'+f);
       if (el) {
-        el.value = '';
-        el.setAttribute('readonly','');
-        el.style.background   = '';
-        el.style.borderColor  = '';
+        el.value = ''; el.setAttribute('readonly','');
+        el.style.background = ''; el.style.borderColor = '';
         el.placeholder = 'Auto-filled';
       }
     });
@@ -809,14 +606,36 @@ function clearAll() {
   document.getElementById('form-area').style.display     = 'block';
   document.getElementById('form-actions').style.display  = 'flex';
 
-  // re-fetch sender PIN
-  lookupPin('s');
+  // Re-apply hardcoded sender values
+  document.getElementById('s-name').value   = 'Unique Surgical';
+  document.getElementById('s-mobile').value = '+91 8920489022';
+  document.getElementById('s-pin').value    = '110092';
+  document.getElementById('s-city').value   = 'D-10 Pandav Nagar';
+  document.getElementById('s-dist').value   = 'East Delhi';
+  document.getElementById('s-state').value  = 'Delhi';
   document.getElementById('r-name').focus();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ── On load: auto-fetch sender PIN ── */
-window.addEventListener('DOMContentLoaded', () => lookupPin('s'));
+/* ── On load: set sender data statically (no API call needed) ── */
+window.addEventListener('DOMContentLoaded', () => {
+  const SENDER = {
+    name  : 'Unique Surgical',
+    mobile: '+91 8920489022',
+    addr  : '',
+    pin   : '110092',
+    city  : 'D-10 Pandav Nagar',
+    dist  : 'East Delhi',
+    state : 'Delhi'
+  };
+  document.getElementById('s-name').value   = SENDER.name;
+  document.getElementById('s-mobile').value = SENDER.mobile;
+  document.getElementById('s-addr').value   = SENDER.addr;
+  document.getElementById('s-pin').value    = SENDER.pin;
+  document.getElementById('s-city').value   = SENDER.city;
+  document.getElementById('s-dist').value   = SENDER.dist;
+  document.getElementById('s-state').value  = SENDER.state;
+});
 </script>
 </body>
 </html>
